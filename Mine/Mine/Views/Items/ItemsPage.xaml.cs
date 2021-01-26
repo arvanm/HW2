@@ -18,13 +18,13 @@ namespace Mine.Views
     [DesignTimeVisible(false)]
     public partial class ItemsIndexPage : ContentPage
     {
-        ItemsViewModel viewModel;
+        ItemsIndexViewModel viewModel;
 
         public ItemsIndexPage()
         {
             InitializeComponent();
 
-            BindingContext = viewModel = new ItemsViewModel();
+            BindingContext = viewModel = new ItemsIndexViewModel();
         }
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
