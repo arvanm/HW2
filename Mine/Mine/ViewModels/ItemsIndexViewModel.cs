@@ -54,5 +54,17 @@ namespace Mine.ViewModels
                 IsBusy = false;
             }
         }
+        /// <summary>
+        /// Read an item from the database
+        /// </summary>
+        /// <param name="id">ID of the record</param>
+        /// <returns>The record from ReadAsync</returns>
+        public async Task<ItemModel> ReadAsync(string id)
+        {
+            var result = await DataStore.ReadAsync(id);
+
+            return result;
+        }
+
     }
 }
