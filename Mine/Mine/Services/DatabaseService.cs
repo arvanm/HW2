@@ -34,10 +34,22 @@ namespace Mine.Services
                 initialized = true;
             }
         }
-
-        public Task<bool> CreateAsync(ItemModel item)
+        /// <summary>
+        /// Insert method at add items to databased
+        /// </summary>
+        /// <param name="item">Item being add to databse</param>
+        /// <returns></returns>
+        public async Task<bool> CreateAsync(ItemModel item)
         {
-            throw new NotImplementedException();
+            if (item == null)
+                return false;
+
+            var result = await Database.InsertAsync(item);
+
+            if (result == 0)
+                return false;
+
+            return true;
         }
 
         public Task<bool> UpdateAsync(ItemModel item)
