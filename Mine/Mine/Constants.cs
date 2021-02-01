@@ -9,21 +9,21 @@ namespace Mine
     {
         public const string DatabaseFilename = "TodoSQLite.db3";
 
-        //public const SQLite.SQLiteOpenFlags Flags =
+        public const SQLite.SQLiteOpenFlags Flags =
         // open the database in read/write mode
-       // SQLite.SQLiteOpenFlags.ReadWrite |
+        SQLite.SQLiteOpenFlags.ReadWrite |
         // create the database if it doesn't exist
-        //SQLite.SQLiteOpenFlags.Create |
+        SQLite.SQLiteOpenFlags.Create |
         // enable multi-threaded database access
-        //SQLite.SQLiteOpenFlags.SharedCache;
+        SQLite.SQLiteOpenFlags.SharedCache;
 
-    public static string DatabasePath
-    {
-        get
+        public static string DatabasePath
         {
-            var basePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            return Path.Combine(basePath, DatabaseFilename);
+            get
+            {
+                var basePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+                return Path.Combine(basePath, DatabaseFilename);
+            }
         }
-    }
     }
 }
