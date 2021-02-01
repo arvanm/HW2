@@ -61,16 +61,25 @@ namespace Mine.Services
         {
             throw new NotImplementedException();
         }
-
+        /// <summary>
+        /// Method used to read from the Database
+        /// </summary>
+        /// <param name="id">Id of item</param>
+        /// <returns>Item</returns>
         public Task<ItemModel> ReadAsync(string id)
         {
-            throw new NotImplementedException();
+            if (id == null)
+                return null;
+
+            var result = Database.Table<ItemModel>().FirstOrDefaultAsync(m => m.Id.Equals(id));
+
+            return result;
         }
         /// <summary>
         /// Index Implemenation of Items
         /// </summary>
         /// <param name="forceRefresh">Bool value</param>
-        /// <returns></returns>
+        /// <returns>List of Items</returns>
         public async Task<IEnumerable<ItemModel>> IndexAsync(bool forceRefresh = false)
         {
             var result = await Database.Table<ItemModel>().ToListAsync();
