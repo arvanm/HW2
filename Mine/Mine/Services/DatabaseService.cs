@@ -54,10 +54,15 @@ namespace Mine.Services
         {
             throw new NotImplementedException();
         }
-
-        public Task<IEnumerable<ItemModel>> IndexAsync(bool forceRefresh = false)
+        /// <summary>
+        /// Index Implemenation of Items
+        /// </summary>
+        /// <param name="forceRefresh">Bool value</param>
+        /// <returns></returns>
+        public async Task<IEnumerable<ItemModel>> IndexAsync(bool forceRefresh = false)
         {
-            throw new NotImplementedException();
+            var result = await Database.Table<ItemModel>().ToListAsync();
+            return result;
         }
     }
 }
