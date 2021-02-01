@@ -8,12 +8,15 @@ namespace Mine
 {
     public partial class App : Application
     {
-
+        /// <summary>
+        /// App registration for data implementation
+        /// </summary>
         public App()
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
+            //DependencyService.Register<MockDataStore>();
+            DependencyService.Register<DatabaseService>();
             MainPage = new MainPage();
         }
 
