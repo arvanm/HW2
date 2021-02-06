@@ -7,7 +7,7 @@ namespace Mine.Helpers
     /// <summary>
     /// Helper Class for managing Dice roll
     /// </summary>
-    class DiceHelper
+    public class DiceHelper
     {
         // static variable for random dice value
         private static Random rnd = new Random();
